@@ -3,14 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WebXR с 3D моделью</title>
-    <link rel="stylesheet" href="./style.css" />
-    <button id="ar-button">🚀 Запустить AR</button>
-    <div id="loading">Загрузка 3D модели...</div>
-
-    <script src="https://yastatic.net/s3/lpc-ext/static/_lib/three.js/0.152.2/three.min.js"></script>
-    <script src="https://yastatic.net/s3/lpc-ext/static/_lib/three.js/0.152.2/GLTFLoader.js"></script>
-    <script src="./script.js"></script>
+    <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <h1>Properties of navigator object</h1>
+    <div id="navigator-properties"></div>
+    <script>
+      const container = document.getElementById("navigator-properties");
+      const properties = [];
+
+      for (const prop in navigator) {
+        if (navigator.hasOwnProperty(prop) || typeof navigator[prop] !== "function") {
+          properties.push(`${prop}: ${navigator[prop]}`);
+        }
+      }
+
+      properties.forEach((prop) => {
+        const div = document.createElement("div");
+        div.className = "property";
+        div.textContent = prop;
+        container.appendChild(div);
+      });
+    </script>
+  </body>
 </html>
